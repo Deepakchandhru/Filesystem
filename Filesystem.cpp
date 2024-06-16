@@ -24,6 +24,7 @@ class FileManager {
 private:
     Node* root;
 
+    // delete nodes for destructor
     void deleteNode(Node* node) {
         if (node == nullptr)
             return;
@@ -110,7 +111,7 @@ public:
         }
     }
 
-    // Function to earch for a file or directory
+    // Function to search for a file or directory
     Node* search(string path) {
         return searchNode(root, path);
     }
@@ -151,6 +152,7 @@ public:
             display(child, depth + 1);
     }
 
+    // Write into a text file
     void writecontent(string file_abs_path){
         ofstream File("D:/" + file_abs_path);
         if (File.is_open()) {
@@ -169,6 +171,7 @@ public:
         }
     }
 
+    // Read a text file
     void readcontent(string file_abs_path){
         ifstream inputFile("D:/" + file_abs_path);
         if (inputFile.is_open()) {
@@ -182,6 +185,7 @@ public:
         }
     }
 
+    // Quick access bar using splay tree
     void quickbar(Node_s* root, int space=0) {
         if (root == nullptr)
             return;
@@ -208,11 +212,10 @@ public:
     }
 };
 
+// To find a textfile or directory
 bool isTextfile(string path){
     return (path.find('.txt') < path.length());
 }
-
-// Helper function to perform a right rotation (Zig)
 
 int main() {
     FileManager fileManager;
