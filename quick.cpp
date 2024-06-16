@@ -106,5 +106,3 @@ Node_s* search(Node_s* root, int key) {
 
     return splay(root, key,root->freq);
 }
-
-// Inorder traversal to print the keys of the splay tree
